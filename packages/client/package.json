@@ -1,0 +1,47 @@
+{
+  "name": "shocked",
+  "version": "4.0.1",
+  "description": "Websocket and redux client",
+  "main": "dist/index.js",
+  "module": "es6/index.js",
+  "react-native": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./es6/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "es6",
+    "src"
+  ],
+  "scripts": {
+    "test": "jest",
+    "clean": "rimraf dist && rimraf es6",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es6": "mkdir -p es6 && echo '{\"type\": \"module\"}' > es6/package.json && tsc",
+    "build": "yarn build:cjs && yarn build:es6",
+    "prepublishOnly": "yarn test && yarn clean && yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharingapples/shocked/tree/master/packages/client"
+  },
+  "author": "Ranjan Shrestha",
+  "license": "MIT",
+  "dependencies": {
+    "nanoid": "^2.0.1",
+    "shocked-common": "^4.0.1",
+    "shocked-types": "^4.0.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8",
+    "react-native": ">=0.59"
+  },
+  "gitHead": "6e00d26a0306e057eddab41d6df03b13639a7c60",
+  "devDependencies": {
+    "@types/react": "^16.9.2",
+    "react": "^16.9.0"
+  }
+}
