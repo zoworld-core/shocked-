@@ -1,0 +1,23 @@
+{
+  "name": "@demo/server",
+  "version": "3.0.0",
+  "main": "src/index.ts",
+  "type": "module",
+  "dependencies": {
+    "redis": "^2.8.0",
+    "shocked-local-broker": "^3.0.0",
+    "shocked-redis-broker": "^3.0.0",
+    "shocked-server": "^3.0.0"
+  },
+  "scripts": {
+    "start": "ts-node-dev --respawn --watch '../../packages/server/src' --transpileOnly src/index.ts",
+    "build": "tsc"
+  },
+  "author": "Ranjan Shrestha",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/redis": "^2.8.13",
+    "ts-node-dev": "^1.0.0-pre.42"
+  }
+}

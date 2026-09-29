@@ -1,0 +1,30 @@
+{
+  "name": "shocked-local-broker",
+  "version": "4.0.1",
+  "description": "A Local Borker that works for single server only pubsub",
+  "main": "dist/index.js",
+  "module": "es6/index.js",
+  "exports": {
+    ".": {
+      "import": "./es6/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "es6"
+  ],
+  "scripts": {
+    "clean": "rimraf dist && rimraf es6",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es6": "mkdir -p es6 && echo '{\"type\": \"module\"}' > es6/package.json && tsc -p tsconfig.json",
+    "build": "yarn build:cjs && yarn build:es6",
+    "prepublishOnly": "yarn clean && yarn build"
+  },
+  "dependencies": {
+    "shocked-types": "^4.0.1"
+  },
+  "author": "Ranjan Shrestha",
+  "license": "MIT",
+  "gitHead": "6e00d26a0306e057eddab41d6df03b13639a7c60"
+}
